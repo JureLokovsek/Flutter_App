@@ -1,3 +1,4 @@
+import 'package:fimber/fimber.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,6 @@ class ItemList extends StatefulWidget {
 }
 
 class ItemListState extends State<ItemList> {
-
   List<String> list;
 
   @override
@@ -25,13 +25,30 @@ class ItemListState extends State<ItemList> {
         appBar: AppBar(
           title: Text("Item List Screen"),
         ),
-        body:ListView.builder(
-                itemCount: list.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Text(list[index]);
-                }
-            )
-    );
+        body: ListView(
+          padding: EdgeInsets.all(8.0),
+          children: list
+              .map((data) => ListTile(
+                    onTap: () {
+                      Fimber.d("Item clicked: $data");
+                    },
+                    leading: Icon(Icons.arrow_forward_ios),
+                    title: Text(
+                      data,
+                      style: TextStyle(color: Colors.indigoAccent),
+                    ),
+                    subtitle: Text(
+                      "Subtitle data: $data",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: "Roboto",
+                        fontSize: 18.0,
+                      ),
+                    ),
+                    trailing: Icon(Icons.map),
+                  ))
+              .toList(),
+        ));
   }
 
   List<String> getHugeStringList() {
@@ -41,12 +58,4 @@ class ItemListState extends State<ItemList> {
     }
     return list;
   }
-
-
 }
-
-
-
-
-
-
