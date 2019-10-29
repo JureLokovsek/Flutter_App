@@ -1,3 +1,4 @@
+import 'package:exploring_flutter/screens/websocket_test_screen.dart';
 import 'package:exploring_flutter/stateless_widgets/image_widget.dart';
 import 'package:exploring_flutter/utils/app_assets.dart';
 import 'package:exploring_flutter/utils/app_route_navigator.dart';
@@ -6,7 +7,7 @@ import 'package:flutter/material.dart';
 
 import 'item_list_screen.dart';
 
-class Home extends StatelessWidget {
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -18,7 +19,8 @@ class Home extends StatelessWidget {
           Center(
             child: textTitle("Flutter App"),
           ),
-          raisedButton(context, "Open Item List Screen"),
+          raisedButtonItemListScreen(context, "Open List Screen"),
+          raisedButtonWebSocketTest(context, "Open WebSocket Screen"),
         ],
       ),
     );
@@ -36,17 +38,34 @@ class Home extends StatelessWidget {
     ));
   }
 
-  RaisedButton raisedButton(BuildContext context, String buttonName) {
+  RaisedButton raisedButtonItemListScreen(BuildContext context, String buttonName) {
     return RaisedButton(
       padding: EdgeInsets.only(left: 50.0, right: 50.0),
       color: Theme.of(context).primaryColorDark,
       textColor: Theme.of(context).primaryColorLight,
       child: Text(buttonName, textScaleFactor: 1.5),
       onPressed: () {
-        Fimber.d("Click");
-        AppNavigator().navigateTo(context, ItemList());
+        Fimber.d("Click: Goint to ItemListScreen");
+        AppNavigator().navigateToStatefulWidget(context, ItemListScreen());
       },
     );
+  }
+
+  RaisedButton raisedButtonWebSocketTest(BuildContext context, String buttonName) {
+    return RaisedButton(
+      padding: EdgeInsets.only(left: 50.0, right: 50.0),
+      color: Theme.of(context).primaryColorDark,
+      textColor: Theme.of(context).primaryColorLight,
+      child: Text(buttonName, textScaleFactor: 1.5),
+      onPressed: () {
+        Fimber.d("Click: Goint to WebSocketScreen");
+        AppNavigator().navigateToStatelessWidget(context, WebSocketScreen());
+      },
+    );
+  }
+
+  void goto(BuildContext context, StatelessWidget widget) {
+    MaterialPageRoute(builder: (context) => widget);
   }
 
 }

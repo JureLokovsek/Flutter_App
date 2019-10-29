@@ -8,7 +8,7 @@ void main() {
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Exploring Flutter App",
-      home: Home()
+      home: HomeScreen()
   ));
   Fimber.d("App Started Running");
 }

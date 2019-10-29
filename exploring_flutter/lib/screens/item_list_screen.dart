@@ -2,14 +2,14 @@ import 'package:fimber/fimber.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ItemList extends StatefulWidget {
+class ItemListScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return ItemListState();
+    return ItemListScreenState();
   }
 }
 
-class ItemListState extends State<ItemList> {
+class ItemListScreenState extends State<ItemListScreen> {
   List<String> list;
 
   @override
