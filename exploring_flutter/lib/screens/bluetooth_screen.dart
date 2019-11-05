@@ -1,11 +1,11 @@
 import 'package:exploring_flutter/stateless_widgets/image_widget.dart';
-import 'package:exploring_flutter/utils/app_route_navigator.dart';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 
-import 'item_list_screen.dart';
-
 class BluetoothScreen extends StatelessWidget {
+
+//  BleManager bleManager = null;
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -45,6 +45,8 @@ class BluetoothScreen extends StatelessWidget {
       onPressed: () {
         Fimber.d("Click: $buttonName");
         // do stuff
+       // FlutterBleLib.instance.createClient(restoreId);
+
       },
     );
   }
@@ -61,7 +63,6 @@ class BluetoothScreen extends StatelessWidget {
       },
     );
   }
-
 }
 
 
