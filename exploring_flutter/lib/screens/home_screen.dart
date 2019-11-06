@@ -63,6 +63,15 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  void showDialog1(BuildContext context) {
+    var alertDialog = AlertDialog(
+      title: Text("Uspešno izveden klik!"),
+      content: Text("Vaša prijava je upešna"),
+    );
+    showDialog(
+        context: context, builder: (BuildContext context) => alertDialog);
+  }
+
 }
 
 

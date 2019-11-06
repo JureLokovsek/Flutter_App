@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 
 class BluetoothScreen extends StatelessWidget {
 
-//  BleManager bleManager = null;
-
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -45,8 +43,6 @@ class BluetoothScreen extends StatelessWidget {
       onPressed: () {
         Fimber.d("Click: $buttonName");
         // do stuff
-       // FlutterBleLib.instance.createClient(restoreId);
-
       },
     );
   }
